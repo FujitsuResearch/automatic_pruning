@@ -21,6 +21,8 @@ This module has the following features.
 |CIFAR10|ResNet56|93.39|93.40|3.52|0.93|73.5|
 |CIFAR10|ResNet110|93.68|93.70|7.12|1.31|81.7|
 
+<img src="images/results.png" width="900">
+
 ## Requirements
 
 Automatic Pruner requires:
