@@ -1,13 +1,9 @@
 # Automatic Pruning Rate Derivation for Structured Pruning of Deep Neural Networks
 Structured pruning method for automatic pruning rate derivation for ICPR 2022
 
-Automatic Pruning is a Python module for pruning neural networks.
-This module has the following features.
-* The pruning rate of each layer can be determined automatically.
-* It can also be applied to convolution layers to which BatchNorm layers are not connected and fully connected layers.  
-* Pre-trained model & pruned model data for example codes are published in following site.  
-  Pre-trained model : https://zenodo.org/record/5725006#.YZ5cSNDP0uU  
-  Pruned model      : https://zenodo.org/record/5725038#.YZ5cY9DP0uU  
+Pre-trained model for example codes are obtained in following site.  
+  Pre-trained model for CIFAR-10: https://zenodo.org/record/5725006#.YZ5cSNDP0uU
+  Pre-trained model for ImageNet: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py
   
 <p align="center">
 <img src="images/results.PNG" width="900">
