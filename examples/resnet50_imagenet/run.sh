@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES='0,1' python3 main.py --data /raid/aibench/forPyTorch/imagenet/ --pretrained_model_path ../pretrained_model/resnet50-0676ba61.pth --pruned_model_path pruned_imagenet_resnet50_00.pt > log.log
