@@ -2,8 +2,8 @@
 Structured pruning method for automatic pruning rate derivation for ICPR 2022  
 
 Pre-trained model for example codes are obtained in following site.  
-  Pre-trained model for CIFAR-10: https://zenodo.org/record/5725006#.YZ5cSNDP0uU  
-  Pre-trained model for ImageNet: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py  
+  *Pre-trained model for CIFAR-10: https://zenodo.org/record/5725006#.YZ5cSNDP0uU  
+  *Pre-trained model for ImageNet: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py  
   
 <p align="center">
 <img src="images/results.PNG" width="900">
