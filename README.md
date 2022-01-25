@@ -1,5 +1,4 @@
 # Automatic Pruning Rate Derivation for Structured Pruning of Deep Neural Networks
-Code for our submitted paper to ICPR 2022  
   
 ## Requirements
 
