@@ -16,7 +16,7 @@ cd /examples/<sample>
 ```
 2. Prepare pre-trained model, and dataset for re-training such as CIFAR-10 and ImageNet.  
 Pre-trained models for example codes can be downloaded from the following links.
-* https://zenodo.org/record/5900671#.Ye-tKOrP38A(for CIFAR-10)   
+* https://zenodo.org/record/5900671#.Ye-tKOrP38A  (for CIFAR-10)   
 * https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py  (for ImageNet)  
 3. Set the file path of the dataset and pre-trained model in `run.sh`.  
 Example of `/examples/resnet34_imagenet/run.sh`  
