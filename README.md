@@ -1,50 +1,42 @@
 # Automatic Pruning Rate Derivation for Structured Pruning of Deep Neural Networks
-Structured pruning method for automatic pruning rate derivation for ICPR 2022  
-
-Pre-trained model for example codes are obtained in following site.  
-* Pre-trained model for CIFAR-10: https://zenodo.org/record/5725006#.YZ5cSNDP0uU  
-* Pre-trained model for ImageNet: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py  
+Code for our submitted paper to ICPR 2022  
   
-<p align="center">
-<img src="images/results.PNG" width="900">
-</p>
-
-
 ## Requirements
 
 Automatic Pruner requires:
-* Python (>= 3.6.7)
-* Torch (>= 1.5.0a0+ba48f58)
-* Torchvision (>= 0.6.0+cu101)
-* Numpy (>= 1.18.2)
-* tqdm (>= 4.62.0)
+* Python 3.6
+* Torch  >=1.6
+* Torchvision >= 0.6.0+cu101
+* Numpy >= 1.18.2
+* tqdm  >= 4.62.0
 
 ## Quick start
-### Run automatic pruner
-1. Move to sample code directory  
+1. Move to sample code directory.  
 ```
 cd /examples/<sample>
 ```
-2. Download pre-trained model from https://zenodo.org/record/5725006#.YZ5cSNDP0uU to sample code directory  
+2. Prepare pre-trained model, and dataset for re-training such as CIFAR-10 and ImageNet.  
+Pre-trained models for example codes can be downloaded from the following links.
+* https://zenodo.org/record/5725006#.YZ5cSNDP0uU (for CIFAR-10)   
+* https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py  (for ImageNet)  
+3. Set the file path of the dataset and pre-trained model in `run.sh`.  
+Example of `/examples/resnet34_imagenet/run.sh`  
 ```
->>> ls /examples/<sample>/*.pt  
-pretrained_xxx.pt  
+CUDA_VISIBLE_DEVICES='0' python3 main.py --data ../dataset/imagenet/ --pretrained_model_path ../pretrained_model/resnet34-b627a593.pth > log.log
 ```
-3. Execute `run.sh`  
+* `--data` The file path for retraining dataset, e.g. CIFAR-10 and ImageNet.
+* `--pretrained_model_path` The file path of pre-trained model.
+
+4. Execute `run.sh`.  
 ```
 chmod +x run.sh && ./run.sh
 ```
-### Run inference with pruned model
-1. Move to sample code directory  
-```
-cd /examples/<sample>
-```
-2. Download pruned model from https://zenodo.org/record/5725038#.YZ5cY9DP0uU to sample code directory
-```
->>> ls /examples/<sample>/*.pt
-pruned_xxx.pt
-```
-3. Execute `run_pruned.sh`
-```
-chmod +x run_pruned.sh && ./run_pruned.sh
 
+### Note: When running inference with pruned model by this code
+The number of channels of pruned model by this code is changed from the model before pruning.
+So, when run inference with pruned model by this code, change the number of channels defined in model file (e.g. `resnet32.py`).
+
+## Results
+<p align="center">
+<img src="images/results.PNG" width="900">
+</p>
