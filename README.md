@@ -35,7 +35,7 @@ chmod +x run.sh && ./run.sh
 
 ### Note: When running inference with pruned model by this code
 The number of channels of pruned model by this code is changed from the model before pruning.
-So, when run inference with pruned model by this code, change the number of channels defined in model file (e.g. `resnet32.py`).
+So, when run inference with pruned model by this code, change the number of channels defined in model file (e.g. `resnet34.py`).
 
 ## Results
 <p align="center">
