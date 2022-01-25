@@ -47,7 +47,7 @@ parser.add_argument('--max_search_times', type=int, default=1000,
                     help='maximum number of times for pruning rate search')
 parser.add_argument('--epochs', type=int, default=250,
                     help='re-training epochs')
-parser.add_argument('--model_path', type=str, default='./pretrained_cifar10_resnet32.pt',
+parser.add_argument('--pretrained_model_path', type=str, default='./pretrained_cifar10_resnet32.pt',
                     help='pre-trained model filepath')
 parser.add_argument('--pruned_model_path', type=str, default='./pruned_cifar10_resnet32.pt',
                     help='pruned model filepath')
@@ -109,7 +109,7 @@ def main():
     # load model
     model = ResNet32()
     model.load_state_dict(torch.load(
-        args.model_path, map_location=device), strict=True)
+        args.pretrained_model_path, map_location=device), strict=True)
 
     if torch.cuda.device_count() > 1 and args.use_DataParallel:
         print('use {} GPUs.'.format(torch.cuda.device_count()))
@@ -241,18 +241,18 @@ def main():
                                                   rates=args.rates,
                                                   max_search_times=args.max_search_times,
                                                   epochs=args.epochs,
-                                                  model_path=args.model_path,
+                                                  model_path=args.pretrained_model_path,
                                                   pruned_model_path=args.pruned_model_path)
 
     print('===== model: after pruning ==========')
     print(model)
     print('===== Results =====')
-    print('Model size before pruning (Byte):', os.path.getsize(args.model_path))
+    print('Model size before pruning (Byte):', os.path.getsize(args.pretrained_model_path))
     if os.path.exists(args.pruned_model_path):
         print('Model size after pruning  (Byte):',
               os.path.getsize(args.pruned_model_path))
         print('Compression rate                : {:.3f}'.format(
-            1-os.path.getsize(args.pruned_model_path)/os.path.getsize(args.model_path)))
+            1-os.path.getsize(args.pruned_model_path)/os.path.getsize(args.pretrained_model_path)))
     print('Acc. before pruning: {:.2f}'.format(Ab))
     print('Acc. after pruning : {:.2f}'.format(Afinal))
     print('Arguments name & number of channels for pruned model: ', n_args_channels)
